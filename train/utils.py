@@ -26,10 +26,11 @@ class Metric:
 
 class MetricProcessor:
 
-    def __init__(self, metrics: list):
-        self.metrics = metrics
-        self.train = {m: Metric(m) for m in metrics}
-        self.val = {m: Metric(m) for m in metrics}
+    def __init__(self, cfg):
+        self.cfg = cfg
+        self.metrics = cfg['metrics']
+        self.train = {m: Metric(m) for m in self.metrics}
+        self.val = {m: Metric(m) for m in self.metrics}
         self.best_val_loss = np.inf
 
     def add_loss(self, loss_value, phase='train'):
@@ -127,5 +128,7 @@ class MetricProcessor:
         axs[2, 1].legend()
 
         plt.tight_layout()
+
+        plt.savefig(f'{self.cfg["model_name"]}.png')
 
         plt.show()

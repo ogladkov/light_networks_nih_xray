@@ -7,17 +7,14 @@ import random
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 from omegaconf import OmegaConf
-import pandas as pd
 import torch
-from torch.utils.data import Dataset, DataLoader
-import torchvision as tv
-from torchvision.datasets import ImageFolder
+from torch.utils.data import Dataset
 
 
 # Data augmentation and preprocessing using Albumentations
-def get_transforms():
+def get_transforms(cfg):
     train_transforms = A.Compose([
-        A.Resize(224, 224),  # DenseNet-121 expects 224x224 images
+        A.Resize(cfg.width, cfg.height),
         A.HorizontalFlip(),
         # A.Rotate(limit=20),  # Rotate up to 20 degrees
         # A.RandomBrightnessContrast(p=0.2),
@@ -27,7 +24,7 @@ def get_transforms():
     ])
 
     val_transforms = A.Compose([
-        A.Resize(224, 224),  # DenseNet-121 expects 224x224 images
+        A.Resize(cfg.width, cfg.height),  # DenseNet-121 expects 224x224 images
         A.Normalize(),
         ToTensorV2(),
     ])

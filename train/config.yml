@@ -1,0 +1,100 @@
+densenet121:
+
+  dataset:
+    root_path: '../data/mnih'
+    width: 224
+    height: 224
+
+  hypers:
+    model_name: 'densenet121'
+    batch_size: 64
+    learning_rate: 0.0001
+    num_epochs: 20
+    num_classes: 4
+    metrics: [ 'loss', 'accuracy', 'f1', 'precision', 'recall' ]
+    checkpoint_save_path: './checkpoints/best'
+
+
+resnet18:
+
+  dataset:
+    root_path: '../data/mnih'
+    width: 224
+    height: 224
+
+  hypers:
+    model_name: 'resnet18'
+    batch_size: 256
+    learning_rate: 0.0001
+    num_epochs: 20
+    num_classes: 4
+    metrics: [ 'loss', 'accuracy', 'f1', 'precision', 'recall' ]
+    checkpoint_save_path: './checkpoints/best'
+
+
+inceptionv3:
+
+  dataset:
+    root_path: '../data/mnih'
+    width: 224
+    height: 224
+
+  hypers:
+    model_name: 'inception_v3'
+    batch_size: 256
+    learning_rate: 0.0001
+    num_epochs: 30
+    num_classes: 4
+    metrics: [ 'loss', 'accuracy', 'f1', 'precision', 'recall' ]
+    checkpoint_save_path: './checkpoints/best'
+
+
+googlenet:
+
+  dataset:
+    root_path: '../data/mnih'
+    width: 224
+    height: 224
+
+  hypers:
+    model_name: 'googlenet'
+    batch_size: 256
+    learning_rate: 0.0001
+    num_epochs: 30
+    num_classes: 4
+    metrics: [ 'loss', 'accuracy', 'f1', 'precision', 'recall' ]
+    checkpoint_save_path: './checkpoints/best'
+
+
+vgg16:
+
+  dataset:
+    root_path: '../data/mnih'
+    width: 224
+    height: 224
+
+  hypers:
+    model_name: 'vgg16'
+    batch_size: 32
+    learning_rate: 0.0001
+    num_epochs: 30
+    num_classes: 4
+    metrics: [ 'loss', 'accuracy', 'f1', 'precision', 'recall' ]
+    checkpoint_save_path: './checkpoints/best'
+
+
+efficientnetb0:
+
+  dataset:
+    root_path: '../data/mnih'
+    width: 224
+    height: 224
+
+  hypers:
+    model_name: 'efficientnet_b0'
+    batch_size: 32
+    learning_rate: 0.0001
+    num_epochs: 30
+    num_classes: 4
+    metrics: [ 'loss', 'accuracy', 'f1', 'precision', 'recall' ]
+    checkpoint_save_path: './checkpoints/best'

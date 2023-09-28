@@ -75,7 +75,7 @@ def train(cfg, device, model, optimizer, criterion, train_loader, val_loader, mp
         # Metric Processor for epoch
         mproc.get_epoch_loss()
         print(
-            f'Total for epoch {epoch}:\n'
+            f'Total for epoch {epoch + 1}:\n'
             f'Train loss: {"{:.4f}".format(mproc.train["loss"].total[-1])}\n'
             f'Val loss: {"{:.4f}".format(mproc.val["loss"].total[-1])}\n'
             f'Train accuracy: {"{:.4f}".format(mproc.train["accuracy"].total[-1])}\n'
@@ -89,7 +89,6 @@ def train(cfg, device, model, optimizer, criterion, train_loader, val_loader, mp
         )
 
         # Save model if it is got better
-        print('CHECK:', mproc.val['loss'].total[-1], mproc.best_val_loss)
         if mproc.val['loss'].total[-1] < mproc.best_val_loss:
             best = dict()
             best['train_loss'] = mproc.train['loss'].total[-1]
