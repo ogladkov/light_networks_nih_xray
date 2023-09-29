@@ -1,6 +1,6 @@
 ## Installation
 
-* Install PyTorch with ```pip install torch torchvision```\
+* Install PyTorch with ```pip install torch torchvision```
 * Install requirements from requirements.txt with ```pip install -r requirements.txt```
 
 ## Run training
